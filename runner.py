@@ -48,28 +48,28 @@ class Square:
         return self.color == TURQUOISE
 
     def reset(self):
-        return self.color == WHITE
+        self.color == WHITE
 
     def make_closed(self):
-        return self.color == RED
+        self.color == RED
 
     def make_open(self):
-        return self.color == GREEN
+        self.color == GREEN
 
     def make_barrier(self):
-        return self.color == BLACK
+        self.color == BLACK
 
     def make_start(self):
-        return self.color == ORANGE
+        self.color == ORANGE
 
     def make_end(self):
-        return self.color == TURQUOISE
+        self.color == TURQUOISE
 
     def make_path(self):
-        return self.color == PURPLE
+        self.color == PURPLE
 
     def draw(self, win):
-        return pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.width))
+        pygame.draw.rect(WIN, self.color, (self.x, self.y, self.width, self.width))
 
     def update_neighbors(self, grid):
         pass
@@ -96,19 +96,19 @@ def make_grid(rows, width):
 def draw_grid(win, rows, width):
     gap = width // rows
     for i in range(rows):
-        pygame.draw.line(win, GREY, (0, i * gap), (width, i * gap))
+        pygame.draw.line(WIN, GREY, (0, i * gap), (width, i * gap))
         for j in range(rows):
-            pygame.draw.line(win, GREY, (j * gap, 0), (j * gap, width))
+            pygame.draw.line(WIN, GREY, (j * gap, 0), (j * gap, width))
 
 
 def draw(win, grid, rows, width):
-    win.fill(WHITE)
+    WIN.fill(WHITE)
 
     for row in grid:
         for square in row:
-            square.draw(win)
+            square.draw(WIN)
 
-    draw_grid(win, rows, width)
+    draw_grid(WIN, rows, width)
     pygame.display.update()
 
 
@@ -161,6 +161,6 @@ def main(win, width):
             elif pygame.mouse.get_pressed()[2]:
                 pass
 
-        pygame.QUIT
+    pygame.quit()
 
 main(WIN, WIDTH)
